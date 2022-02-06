@@ -1,0 +1,5 @@
+CLASS zbp_c_rap_booking_rr1 DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zc_rap_booking_rr1.
+ENDCLASS.
+
+CLASS zbp_c_rap_booking_rr1 IMPLEMENTATION.
+ENDCLASS.

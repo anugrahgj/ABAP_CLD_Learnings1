@@ -1,0 +1,15 @@
+unmanaged implementation in class z_i_room_behave_jbp unique;
+//strict; //Comment this line in to enable strict mode. The strict mode is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for Z_I_ROOM_JBP
+alias room
+lock master
+etag master lastchangeddatetime
+{
+  create;
+  update;
+  delete;
+
+  field ( mandatory ) id;
+  field ( read only ) lastchangedbyuser, lastchangeddatetime;
+}

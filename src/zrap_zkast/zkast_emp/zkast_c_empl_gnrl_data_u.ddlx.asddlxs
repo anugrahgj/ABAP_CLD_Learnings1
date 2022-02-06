@@ -1,0 +1,154 @@
+@Metadata.layer: #CORE
+
+@UI: {
+  headerInfo: { typeName: 'Object Page Title Section',
+
+                title: { type: #STANDARD, value: 'EmpGender'  },
+                description: { value: 'EmpFirstName' },
+
+                typeImageUrl: 'https://leverx.com/images/header/ic_logo.svg'    ,
+
+                typeNamePlural: 'List Report Table Header'   },
+                presentationVariant: [{ sortOrder: [{ by: 'EmpId', direction:  #ASC  }]  }]  }
+
+annotate view ZKAST_C_Empl_Gnrl_Data_U with
+{
+
+  @UI.facet: [
+    {
+        id:              'HeaderFacet',
+        purpose:         #HEADER,
+        type:            #FIELDGROUP_REFERENCE,
+        label:           'Object Page - Header Facet',
+        targetQualifier: 'Fieldgroup:HeaderItems',
+        position:        10
+    },
+    {
+        id:              'HeaderFacet2',
+        purpose:         #HEADER,
+        type:            #FIELDGROUP_REFERENCE,
+        label:           'Object Page - Header Facet2',
+        targetQualifier: 'Fieldgroup:HeaderItems2',
+        position:        20
+    },
+    {
+        id:              'HeaderFacet3',
+        purpose:         #HEADER,
+        type:            #DATAPOINT_REFERENCE,
+        label:           'Object Page - Header Facet3',
+        targetQualifier: 'Fieldgroup:HeaderItems3',
+        position:        25
+    },
+
+       
+    {
+        id:              'Employee2',
+        purpose:         #STANDARD,
+        type:            #COLLECTION,
+        label:           'Employee - Collection',
+        position:        40
+    },
+    {
+        id:              'General_Info',
+        purpose:         #STANDARD,
+        type:            #FIELDGROUP_REFERENCE,
+        parentId:        'Employee2',
+        label:           'Field group 1',
+        position:        50,
+        targetQualifier: 'Field_group_1'
+    },
+    {
+        id:              'General_Info_2',
+        purpose:         #STANDARD,
+        type:            #FIELDGROUP_REFERENCE,
+        parentId:        'Employee2',
+        label:           'Field group 2',
+        position:        60,
+        targetQualifier: 'Field_group_2'
+    },
+    
+
+    {
+        id:              'Employee',
+        purpose:         #STANDARD,
+        type:            #IDENTIFICATION_REFERENCE,
+        label:           'Employee lineitem',
+        position:        70,
+        targetElement:   '_EmpInf'
+    }
+      
+    
+    
+    
+    
+    
+    
+//    {
+//        purpose:         #QUICK_VIEW,
+//        type:            #FIELDGROUP_REFERENCE,
+//        targetQualifier: 'SupplierQuickViewPOC_FieldGroup_1'
+//    }
+    ]
+          
+
+
+@Consumption.valueHelpDefinition: [{ entity : {name: 'ZKAST_I_EMPL_INF_L_DATA_U', element: 'EmpId'}  }]
+@UI : { selectionField: [{position: 30}] }                   
+  EmpId;
+
+  @UI: {  identification: [ { position: 20 } ],
+          fieldGroup:     [ { qualifier: 'Fieldgroup:HeaderItems', position: 20 },
+                            { qualifier: 'Field_group_1', position: 20 },
+                            { qualifier: 'SupplierQuickViewPOC_FieldGroup_1', 
+                              type: #STANDARD, position: 1, label: 'Sur Name', value: 'EMPFIRSTNAME' }
+                           ] }
+  EmpFirstName;
+
+  @UI: {  identification: [ { position: 30 } ],
+          fieldGroup:     [ { qualifier: 'Fieldgroup:HeaderItems', position: 30, label: 'Emp Last Name FieldGroup' },
+                            { qualifier: 'Field_group_2', position: 30, label: 'EMPLastCollection' } ]  }
+                            
+// @UI : {  lineItem: [{ label: 'Company', type: #WITH_URL, url: 'EmpCompWebSite' } ] }
+  EmpLastName;
+
+  @UI: {  identification: [ { position: 40 } ],
+          fieldGroup:     [ { qualifier: 'Fieldgroup:HeaderItems2', position: 40 } ],
+          dataPoint:        { qualifier: 'Fieldgroup:HeaderItems3', title: 'AGGE',
+                              criticality: 'OverallGenderCriticality' }  }
+  @EndUserText: {             label: 'Emp Age en user text label',
+                              quickInfo: 'Quick Info for Employee Age' }
+  EmpAge;
+
+  @UI: {  identification: [ { position: 50, type:#WITH_INTENT_BASED_NAVIGATION } ],
+          fieldGroup:     [ { qualifier: 'Fieldgroup:HeaderItems2', position: 50 } ],
+          lineItem:       [ { position: 50, label: 'Gender', importance: #HIGH, 
+                              criticality: 'OverallGenderCriticality', 
+                              criticalityRepresentation: #WITHOUT_ICON } ]  }
+
+  @Consumption.semanticObject: 'EmpGender'
+  
+  EmpGender;
+
+  @UI : {  lineItem: [{ label: 'Company', type: #WITH_URL, url: 'EmpCompWebSite' } ] }
+  EmpCompany;
+
+  @UI: {  hidden: true  }
+  EmpCompWebSite;
+  
+   @UI: {  selectionField: [{ position: 20 }]  }
+  City;
+  
+
+  @UI: {  hidden: true  }
+  Createdby;
+
+  @UI: {  hidden: true  }
+  Createdat;
+
+  @UI: {  hidden: true  }
+  Lastchangedby;
+
+  @UI: {  hidden: true  }
+  Lastchangedat;
+
+}

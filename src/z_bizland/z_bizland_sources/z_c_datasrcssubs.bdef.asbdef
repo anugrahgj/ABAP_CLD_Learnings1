@@ -1,0 +1,37 @@
+projection implementation in class zbp_c_datasrcssubs unique;
+strict;
+
+define behavior for Z_C_DATASRCSSUBS alias datasrcssubs
+implementation in class zcl_c_bp_datasrcssubs unique
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _agent { create; }
+  use association _subscription { create; }
+  field ( readonly ) CreatedBy, LastChangedBy;
+  field ( suppress ) lastchangedat, locallastchangedat;
+}
+
+define behavior for Z_C_AGENT alias agent
+implementation in class zcl_c_bp_agent unique
+{
+  use update;
+  use delete;
+
+  use association _dataSrcSubs;
+  field ( readonly ) datasourceagentid, CreatedBy, LastChangedBy, LastChangedAt;
+  field ( suppress ) datasourceid, locallastchangedat;
+}
+
+define behavior for Z_C_SUBSCRIPTION alias subscription
+implementation in class zcl_c_bp_subscription unique
+{
+  use update;
+  use delete;
+
+  use association _DATASRCSSUBS;
+  field ( readonly ) datasourceid, CreatedBy, LastChangedAt;
+  field ( suppress ) lastchangedby, locallastchangedat;
+}

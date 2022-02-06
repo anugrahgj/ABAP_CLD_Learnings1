@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZCM_USERS_XXX</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Message Class Users</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZCM_USERS_XXX</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Access to remote system cannot be established</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZCM_USERS_XXX</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>HTTP Client could not be instantiated.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZCM_USERS_XXX</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Client Proxy could not be instantiated.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZCM_USERS_XXX</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Remote HTTP service consumption error.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZCM_USERS_XXX</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>SAP Gateway error.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZCM_USERS_XXX</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Query failed.</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

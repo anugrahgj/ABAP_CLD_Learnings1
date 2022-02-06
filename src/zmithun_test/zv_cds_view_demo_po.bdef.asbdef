@@ -1,0 +1,30 @@
+managed; // implementation in class zbp_v_cds_view_demo_po unique;
+//strict; //Comment this line in to enable strict mode. The strict mode is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for ZV_CDS_VIEW_DEMO_PO //alias <alias_name>
+persistent table ZTEST_PO
+lock master
+//authorization master ( instance )
+//etag master <field_name>
+{
+  field (mandatory) Purchaseorder, PurchaseItem;
+  create;
+  update;
+  delete;
+
+  mapping for ZTEST_PO
+  {
+  Purchaseorder = ebeln;
+  PurchaseItem  = ebelp;
+  Material      = matnr;
+  Plant         = werks;
+  SorageLoction = lgort;
+  MaterialGrp   = matkl;
+  ShortText     = txz01;
+  SalesOrg      = bukrs;
+  Qty           = menge;
+  Uom           = meins;
+  Price         = netpr;
+  Price_unit    = peinh;
+  }
+}

@@ -1,0 +1,3 @@
+FUNCTION-POOL Z_CREATE_ITEM_GROUP_07.       "MESSAGE-ID ..
+
+* INCLUDE LZ_CREATE_ITEM_GROUP_07D...        " Local class definition

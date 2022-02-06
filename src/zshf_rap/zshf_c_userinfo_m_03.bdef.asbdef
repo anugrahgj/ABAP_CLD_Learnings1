@@ -1,0 +1,21 @@
+managed; // implementation in class zbp_shf_c_userinfo_m_03 unique;
+//strict;
+
+define behavior for ZSHF_C_USERINFO_M_03 //alias <alias_name>
+persistent table ZSHFUSERINFO_03
+lock master
+//authorization master ( instance )
+//etag master <field_name>
+{
+ field ( readonly ) Email, first_name, last_name;
+  create;
+  update;
+  delete;
+
+  mapping for zshfuserinfo_03 {
+    Email = user_email;
+    first_name = first_name;
+    last_name = last_name;
+    }
+
+}

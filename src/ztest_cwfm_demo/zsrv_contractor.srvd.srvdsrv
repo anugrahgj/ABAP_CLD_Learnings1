@@ -1,0 +1,5 @@
+@EndUserText.label: 'Contractor Service'
+define service ZSRV_CONTRACTOR {
+  expose ZC_HD_CONTRACTOR as Contractor;
+  expose ZC_TM_ATTENDANCE as Attendance;
+}

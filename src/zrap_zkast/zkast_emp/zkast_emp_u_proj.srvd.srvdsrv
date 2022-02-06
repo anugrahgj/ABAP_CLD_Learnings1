@@ -1,0 +1,5 @@
+@EndUserText.label: 'ZKAST_EMP_U_proj'
+define service ZKAST_EMP_U_proj {
+  expose ZKAST_EMP_C_proj;
+  expose ZKAST_EMPINF_C_proj;
+}

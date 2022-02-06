@@ -1,0 +1,154 @@
+**"* use this source file for your ABAP unit test classes
+*CLASS ltc_roan_to_arabic DEFINITION FOR TESTING RISK LEVEL HARMLESS DURATION SHORT.
+*
+*  PRIVATE SECTION.
+*    DATA: m_cut TYPE REF TO zcl_wtc_roman_converter.
+*    METHODS one_in_1_out FOR TESTING.
+*    METHODS two_in_2_out FOR TESTING RAISING cx_static_check.
+*    METHODS two_in_3_out FOR TESTING RAISING cx_static_check.
+*    METHODS setup.
+*
+*
+*ENDCLASS.
+*
+*
+*
+*CLASS ltc_roan_to_arabic IMPLEMENTATION.
+*
+*  METHOD setup.
+**given
+*    m_cut =  NEW zcl_wtc_roman_converter(  ).
+*  ENDMETHOD.
+*
+*
+*  METHOD one_in_1_out.
+*
+**when
+*    DATA(arabic) = m_cut->to_arabic( i_roman_numeral = 'I' ).
+*
+**then
+*    cl_abap_unit_assert=>assert_equals(
+*      EXPORTING
+*        act                  = arabic
+*        exp                  = 1
+*    ).
+*
+*  ENDMETHOD.
+*
+*
+*  METHOD two_in_2_out.
+*
+**when
+*    DATA(arabic) = m_cut->to_arabic( i_roman_numeral = 'II' ).
+*
+**then
+*    cl_abap_unit_assert=>assert_equals(
+*      EXPORTING
+*        act                  = arabic
+*        exp                  = 2
+*    ).
+*  ENDMETHOD.
+*
+*
+*  METHOD two_in_3_out.
+*
+**when
+*    DATA(arabic) = m_cut->to_arabic( i_roman_numeral = 'III' ).
+*
+**then
+*    cl_abap_unit_assert=>assert_equals(
+*      EXPORTING
+*        act                  = arabic
+*        exp                  = 3
+*    ).
+*  ENDMETHOD.
+*
+*ENDCLASS.
+
+
+
+" Roman numerals spec: http://en.wikipedia.org/wiki/Roman_numerals
+"
+CLASS ltc_to_arabic DEFINITION FINAL FOR TESTING
+  DURATION SHORT RISK LEVEL HARMLESS.
+
+  PRIVATE SECTION.
+    DATA m_roman_converter TYPE REF TO zcl_wtc_roman_converter.
+
+    METHODS setup.
+
+    METHODS assert_convert
+      IMPORTING i_roman  TYPE string
+                i_arabic TYPE i.
+
+    METHODS assert_error
+      IMPORTING i_roman TYPE string.
+
+    METHODS verify_single FOR TESTING.
+    METHODS verify_additive FOR TESTING.
+    METHODS verify_subtractive FOR TESTING.
+    METHODS verify_complex FOR TESTING.
+    METHODS error_cases FOR TESTING.
+
+ENDCLASS.
+
+
+CLASS ltc_to_arabic IMPLEMENTATION.
+
+  METHOD setup.
+    CREATE OBJECT m_roman_converter.
+  ENDMETHOD.
+
+  METHOD assert_convert.
+    cl_abap_unit_assert=>assert_equals( exp = i_arabic
+                                        act = m_roman_converter->to_arabic( i_roman ) ).
+  ENDMETHOD.
+
+  METHOD assert_error.
+    cl_abap_unit_assert=>assert_equals( exp = zcl_wtc_roman_converter=>error_value
+                                        act = m_roman_converter->to_arabic( i_roman ) ).
+  ENDMETHOD.
+
+  METHOD verify_single.
+    assert_convert( i_roman = ''  i_arabic = 0 ).
+    assert_convert( i_roman = 'I' i_arabic = 1 ).
+    assert_convert( i_roman = 'V' i_arabic = 5 ).
+    assert_convert( i_roman = 'X' i_arabic = 10 ).
+    assert_convert( i_roman = 'L' i_arabic = 50 ).
+    assert_convert( i_roman = 'C' i_arabic = 100 ).
+    assert_convert( i_roman = 'D' i_arabic = 500 ).
+    assert_convert( i_roman = 'M' i_arabic = 1000 ).
+  ENDMETHOD.
+
+  METHOD verify_additive.
+    assert_convert( i_roman = 'II' i_arabic = 2 ).
+    assert_convert( i_roman = 'XX' i_arabic = 20 ).
+    assert_convert( i_roman = 'XV' i_arabic = 15 ).
+    assert_convert( i_roman = 'MM' i_arabic = 2000 ).
+    assert_convert( i_roman = 'III' i_arabic = 3 ).
+  ENDMETHOD.
+
+  METHOD verify_subtractive.
+    assert_convert( i_roman = 'IX' i_arabic = 9 ).
+    assert_convert( i_roman = 'XC' i_arabic = 90 ).
+    assert_convert( i_roman = 'CM' i_arabic = 900 ).
+  ENDMETHOD.
+
+  METHOD verify_complex.
+    assert_convert( i_roman = 'XIV' i_arabic = 14 ).
+    assert_convert( i_roman = 'CMXL' i_arabic = 940 ).
+    assert_convert( i_roman = 'CMXLIII' i_arabic = 943 ).
+    assert_convert( i_roman = 'MCMXLVII' i_arabic = 1947 ).
+  ENDMETHOD.
+
+  METHOD error_cases.
+    assert_error( i_roman = 'A' ).     "-- invalid character
+    assert_error( i_roman = 'ABC' ).   "-- invalid characters
+    assert_error( i_roman = 'IIII').   "-- more than 3
+    assert_error( i_roman = 'VV').     "-- repeat not allowed
+    assert_error( i_roman = 'LL').     "-- repeat not allowed
+    assert_error( i_roman = 'DD').     "-- repeat not allowed
+    assert_error( i_roman = 'MCXXXXI')."-- more than 3 inside
+    assert_error( i_roman = 'MIC').    "-- I only before X and V
+  ENDMETHOD.
+ENDCLASS.

@@ -1,0 +1,12 @@
+projection;
+strict;
+
+define behavior for ZKAST_C_Park_U alias Park
+{
+  use create;
+  use update;
+  use delete;
+
+
+  use action StatusOpen;
+}

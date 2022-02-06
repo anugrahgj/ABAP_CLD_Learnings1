@@ -1,0 +1,20 @@
+managed;
+strict;
+
+define behavior for Z_I_AUTHORS alias authors
+implementation in class Z_I_BP_AUTHORS unique
+persistent table ZAUTHORS
+etag master changed_at
+lock master
+authorization master (global)
+
+{
+  mapping for ZAUTHORS corresponding;
+  // semantic key is calculated in a determination
+//  field ( readonly ) authorid;
+//  field ( mandatory ) authorname;
+  create;
+  update;
+  delete;
+
+}

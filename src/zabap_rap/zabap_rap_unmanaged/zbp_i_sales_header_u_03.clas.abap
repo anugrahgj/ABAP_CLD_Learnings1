@@ -1,0 +1,5 @@
+CLASS zbp_i_sales_header_u_03 DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF z_i_sales_header_u_03.
+ENDCLASS.
+
+CLASS zbp_i_sales_header_u_03 IMPLEMENTATION.
+ENDCLASS.

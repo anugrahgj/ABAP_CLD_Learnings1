@@ -1,0 +1,4 @@
+@EndUserText.label: 'SD'
+define service ZBC_S02_FINISH_JOIN_SD {
+  expose ZBC_S02_FINISH_JOIN;
+}

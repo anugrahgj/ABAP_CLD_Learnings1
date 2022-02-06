@@ -1,0 +1,5 @@
+@EndUserText.label: 'PO Report Service Definiton'
+define service ZR_SERV {
+  expose ZPR_VIEW;
+  expose Z_R_ITEMS;
+}

@@ -1,0 +1,89 @@
+managed;
+with draft;
+
+define behavior for ZI_UX_TEAM alias UXTeam
+implementation in class zbp_i_ux_team unique
+persistent table zrap_ux_team
+draft table zrap_dux_team
+lock master total etag LastChangedAt
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( numbering : managed, readonly ) Uuid;
+  field ( readonly ) Active, Salary;
+  field ( readonly ) LastChangedAt, LocalLastChangedAt;
+
+  action ( features : instance ) setActive result [1] $self;
+  action ( features : instance ) setInactive result [1] $self;
+
+  determination changeSalary on save { field Role; }
+  determination calculateEmployeeID on modify { create; }
+
+  validation validateAge on save { field Age; create; }
+
+  mapping for ZRAP_UX_TEAM
+  {
+    Uuid = uuid;
+    EmployeeID = employee_id;
+    FirstName = firstName;
+    LastName = lastName;
+    Age = age;
+    Role = role;
+    Salary = salary;
+    Active = active;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}
+
+
+define behavior for zi_rap_imp_data alias ImpData
+implementation in class zbp_i_imp_data unique
+persistent table zrap_emp_data1
+draft table zrap_demp_data1
+lock dependent by _Team
+authorization dependent by _Team
+etag master Lastchangedat
+{
+  update;
+  delete;
+  association _Team { with draft; }
+
+  field ( numbering : managed, readonly ) EmployeeUUID;
+  field ( readonly ) TeamUUID;
+  //  field ( readonly ) CreatedBy, LastChangedBy, LocalLastChangedAt;
+  //
+  //  determination calculateBookingID on modify { create; }
+  //  determination calculateTotalPrice on modify { field FlightPrice, CurrencyCode; }
+
+  determination calculateEmployeeID on modify { create; }
+
+validation validateEmail on save { field EmailAddress; create; }
+validation validateAge on save { field Age; }
+
+  mapping for ZRAP_EMP_DATA1
+  {
+    EmployeeUUID = employee_uudd;
+    EmployeeId = employee_id;
+    TeamUUID = team_uuid;
+    FirstName = first_name;
+    LastName = last_name;
+    Age = age;
+    Title = title;
+    Street = street;
+    PostalCode = postal_code;
+    City = city;
+    CountryCode = country_code;
+    PhoneNumber = phone_number;
+    EmailAddress = email_address;
+    Createdby = createdby;
+    Createdat = createdat;
+    Lastchangedby = lastchangedby;
+    Lastchangedat = lastchangedat;
+  }
+
+}

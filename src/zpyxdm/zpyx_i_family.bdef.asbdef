@@ -1,0 +1,48 @@
+managed implementation in class zbp_pyx_i_family unique;
+//strict;
+with draft;
+
+define behavior for ZPYX_I_FAMILY alias Family
+persistent table ZPYXFAMILY
+draft table ZPYXFAMILY_D
+lock master
+total etag LastChangedAt
+{
+
+  field(numbering : managed,readonly) Guid;
+  field(mandatory) Afp;
+  field(readonly) CreatedAt, CreatedBy, LastChangedAt, LastChangedBy;
+  create;
+  update;
+  delete;
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZPYXFAMILY {
+    Guid            = guid;
+    Afp             = afp;
+    CreatedBy       = created_by;
+    CreatedAt       = created_at;
+    LastChangedAt   = last_changed_at;
+    LastChangedBy   = last_changed_by;
+  }
+
+  association _Text {create ( features : global ); with draft;}
+}
+
+define behavior for ZPYX_I_FAMILY_T alias FamilyText
+persistent table ZPYXFAMILY_T
+draft table ZPYXFAMILY_T_D
+lock dependent by _Parent
+{
+  field(readonly:update) Guid;
+  field(mandatory) Descr;
+  field(features : instance) Langu;
+  update;
+  delete;
+
+  association _Parent {with draft;}
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Workflow demo'
+define service ZUI_RR_RAP_WORKFLOW {
+  expose ZC_RAP_BOOKING_RR1;
+}

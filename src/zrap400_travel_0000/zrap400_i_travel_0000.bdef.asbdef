@@ -1,0 +1,66 @@
+managed;
+
+define behavior for ZRAP400_I_TRAVEL_0000 alias Travel
+implementation in class ZRAP400_bp_i_travel_0000 unique
+persistent table ZRAP400_TRAV0000
+etag master LastChangedAt
+lock master
+
+{
+  create;
+  update;
+  delete;
+
+  mapping for ZRAP400_TRAV0000
+  {
+    TravelID = TRAVEL_ID;
+    AgencyID = AGENCY_ID;
+    CustomerID = CUSTOMER_ID;
+    BeginDate = BEGIN_DATE;
+    EndDate = END_DATE;
+    BookingFee = BOOKING_FEE;
+    TotalPrice = TOTAL_PRICE;
+    CurrencyCode = CURRENCY_CODE;
+    Description = DESCRIPTION;
+    OverallStatus = OVERALL_STATUS;
+    CreatedBy = CREATED_BY;
+    CreatedAt = CREATED_AT;
+    LastChangedBy = LAST_CHANGED_BY;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+  association _Booking { create; }
+}
+
+define behavior for ZRAP400_I_BOOKING_0000 alias Booking
+implementation in class ZRAP400_bp_i_booking_0000 unique
+persistent table ZRAP400_BOOK0000
+etag master LastChangedAt
+lock dependent by _Travel
+
+{
+  field ( readonly : update )
+   TravelID,
+   BookingID;
+
+
+  update;
+  delete;
+
+  mapping for ZRAP400_BOOK0000
+  {
+    TravelID = TRAVEL_ID;
+    BookingID = BOOKING_ID;
+    BookingDate = BOOKING_DATE;
+    CustomerID = CUSTOMER_ID;
+    CarrierID = CARRIER_ID;
+    ConnectionID = CONNECTION_ID;
+    FlightDate = FLIGHT_DATE;
+    FlightPrice = FLIGHT_PRICE;
+    CurrencyCode = CURRENCY_CODE;
+    BookingStatus = BOOKING_STATUS;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+  association _Travel;
+}

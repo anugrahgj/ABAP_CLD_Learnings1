@@ -1,0 +1,4 @@
+@EndUserText.label: 'Servie defination'
+define service ZSD_STUDENT {
+  expose zproj_stud;
+}

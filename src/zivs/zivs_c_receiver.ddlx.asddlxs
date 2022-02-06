@@ -1,0 +1,37 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Receiver',
+                typeNamePlural: 'Receivers',
+                title: { type: #STANDARD,
+                         value: 'recv_id' } } }
+
+annotate view ZIVS_C_Receiver with
+{
+  @UI.facet: [ { id:            'Receiver',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Receiver',
+                 position:      10 } ]
+
+
+//  @UI: { lineItem:       [ { position: 10,
+//                             importance: #HIGH } ],
+//         identification: [ { position: 10 } ] }
+  @UI.hidden: true
+  comp_id;
+  @UI: { lineItem:       [ { position: 20,
+                             importance: #HIGH } ],
+         identification: [ { position: 20 } ] }
+
+  recv_id;
+  @UI: { lineItem:       [ { position: 30,
+                           importance: #HIGH } ],
+         identification: [ { position: 30 } ],
+         selectionField: [ { position: 30 } ] }
+  @Consumption.valueHelpDefinition: [{ entity : {name: 'ZIVS_I_ReceiverName_VH', element: 'value_low'  } }]
+  ReceiverName;
+  @UI: { lineItem:       [ { position: 40,
+                     importance: #HIGH } ],
+  identification: [ { position: 40 } ] }
+  LastChangedAt;
+}

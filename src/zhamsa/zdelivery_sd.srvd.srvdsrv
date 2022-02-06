@@ -1,0 +1,4 @@
+@EndUserText.label: 'Services definition for Delivery Number'
+define service Zdelivery_sd {
+  expose zcds_delivery;
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Defenition'
+define service ZUI_RAP_UX_TEAM {
+  expose ZC_UX_TEAM as UXTeam;
+  expose zc_rap_imp_data as ImpData;
+}

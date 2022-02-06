@@ -1,0 +1,11 @@
+@EndUserText.label: 'Acces Control for the PO Header'
+@MappingRole: true
+define role ZV_CDS_VIEW_DEMO_PO_HEADRER {
+    grant 
+        select
+            on
+                ZV_CDS_VIEW_DEMO_PO_HEADER
+                    where
+                        (DocType = 'ZOC');
+                        
+}

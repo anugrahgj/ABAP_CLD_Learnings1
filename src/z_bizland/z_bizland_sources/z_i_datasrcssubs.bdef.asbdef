@@ -1,0 +1,63 @@
+unmanaged implementation in class zbp_i_datasrcssubs unique;
+strict;
+
+define behavior for Z_I_DATASRCSSUBS alias datasrcsubs
+implementation in class zcl_bp_datasrcssubs unique
+late numbering
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly ) CreatedBy, LastChangedAt, LastChangedBy, LocalLastChangedAt;
+  association _agent { create; }
+  association _srcendpoint { create; }
+  association _subscription { create; }
+}
+
+define behavior for Z_I_SRCENDPOINT alias endpoints
+implementation in class zcl_bp_endpoint unique
+late numbering
+lock dependent by _datasrcssubs
+authorization dependent by _datasrcssubs
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly ) EndpointId, LastChangedAt, LastChangedBy, LocalLastChangedAt, CreatedBy;
+  association _datasrcssubs;
+
+}
+
+define behavior for Z_I_AGENT alias agent
+implementation in class zcl_bp_agent unique
+late numbering
+lock dependent by _dataSrcSubs
+authorization dependent by _dataSrcSubs
+etag master LocalLastChangedAt
+{
+  update;
+  delete;
+
+  field ( readonly ) DataSourceAgentId, CreatedBy, LastChangedAt, LastChangedBy, LocalLastChangedAt;
+  association _dataSrcSubs;
+}
+
+define behavior for Z_I_SUBSCRIPTION alias srcendpoint
+implementation in class zcl_bp_subscription unique
+late numbering
+lock dependent by _DATASRCSSUBS
+authorization dependent by _DATASRCSSUBS
+etag master LocalLastChangedAt
+{
+  update;
+  delete;
+
+  field ( readonly ) DataSourceId, LastChangedAt, CreatedBy, LastChangedBy, LocalLastChangedAt;
+  association _DATASRCSSUBS;
+}

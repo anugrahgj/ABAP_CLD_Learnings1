@@ -1,0 +1,63 @@
+@Metadata.layer: #CORE
+
+@UI: { headerInfo: { typeName: 'Family', 
+                     typeNamePlural: 'Families', 
+                     title: { type: #STANDARD, value: 'Descr' },
+                     description: { value: 'Afp' } } }
+       
+annotate entity ZPYX_C_FAMILY
+    with 
+{
+
+     @UI.facet: [
+        { 
+            id:                 'Data',
+            purpose:            #STANDARD,
+            type:               #FIELDGROUP_REFERENCE,
+            targetQualifier:    'dataGRP',
+            label:              'Data',
+            position:           20 
+        },
+        { 
+            id:                 'Admin',
+            purpose:            #STANDARD,
+            type:               #FIELDGROUP_REFERENCE,
+            targetQualifier:    'adminGRP',
+            label:              'Admin',
+            position:           20 
+        },
+        { 
+            id:                 'Translation',
+            purpose:            #STANDARD,
+            type:               #LINEITEM_REFERENCE,
+            targetElement:      '_Text',
+            label:              'Translation',
+            position:           30
+        }
+     ]
+
+  @UI.hidden: true
+  Guid;
+  
+  @UI: { lineItem:       [ { position: 10 } ] ,
+//         identification: [ { position: 10 } ],
+         selectionField: [ { position: 10 } ] } 
+  @UI.fieldGroup: [ { qualifier: 'dataGRP', position: 10} ]
+  Descr;
+
+  @UI: { lineItem:       [ { position: 20 } ] ,
+//         identification: [ { position: 20 } ],
+         selectionField: [ { position: 20 } ] }  
+  @UI.fieldGroup: [ { qualifier: 'dataGRP', position: 20} ]
+  Afp;
+
+  @UI.fieldGroup: [ { qualifier: 'adminGRP', position: 10} ]
+  CreatedBy;               
+  @UI.fieldGroup: [ { qualifier: 'adminGRP', position: 20} ]
+  CreatedAt;               
+  @UI.fieldGroup: [ { qualifier: 'adminGRP', position: 30} ]               
+  LastChangedBy;
+  @UI.fieldGroup: [ { qualifier: 'adminGRP', position: 40} ]               
+  LastChangedAt; 
+     
+}

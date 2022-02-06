@@ -1,0 +1,75 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo: { typeName: 'PO Item',
+typeNamePlural: 'PO Items',
+title.value: 'Purchaseorder',
+title.criticality: 'PurchaseItem'
+}
+annotate view ZV_CDS_VIEW_DEMO_PO
+    with 
+{
+@UI.facet: [{ id : 'Purchaseorder',
+              type: #IDENTIFICATION_REFERENCE,
+              label: 'PO Number'}]  
+@UI.lineItem: [{position: 10, label: 'PO Number'}] 
+@UI.identification: [{ position: 10, label: 'PO Number' }]  
+Purchaseorder;
+
+@UI.facet: [{ id : 'PurchaseItem',
+              type: #IDENTIFICATION_REFERENCE,
+              label: 'PO Item'}]  
+@UI.lineItem: [{position: 20, label: 'PO Item'}] 
+@UI.identification: [{ position: 20, label: 'PO Item' }]  
+PurchaseItem;
+
+@UI.lineItem: [{position: 30, label: 'Material'}] 
+@UI.identification: [{ position: 10, label: 'Material' }]
+Material;
+
+@UI.lineItem: [{position: 40, label: 'Plant'}] 
+@UI.identification: [{ position: 10, label: 'Plant' }]
+Plant;    
+
+@UI.lineItem: [{position: 50, label: 'SorageLoction'}] 
+@UI.identification: [{ position: 10, label: 'SLoc' }]
+SorageLoction;    
+
+@UI.lineItem: [{position: 60, label: 'MaterialGrp'}] 
+@UI.identification: [{ position: 10, label: 'MaterialGrp' }]
+MaterialGrp; 
+
+@UI.lineItem: [{position: 70, label: 'ShortText'}] 
+@UI.identification: [{ position: 10, label: 'ShortText' }]
+ShortText; 
+
+@UI.lineItem: [{position: 80, label: 'SalesOrg'}] 
+@UI.identification: [{ position: 10, label: 'SalesOrg' }]
+SalesOrg; 
+
+@UI.lineItem: [{position: 90, label: 'Qty'}] 
+@UI.identification: [{ position: 10, label: 'Qty' }]
+Qty; 
+
+@UI.lineItem: [{position: 100, label: 'Uom'}] 
+@UI.identification: [{ position: 10, label: 'Uom' }]
+Uom; 
+
+@UI.lineItem: [{position: 110, label: 'Price'}] 
+@UI.identification: [{ position: 10, label: 'Price' }]
+Price; 
+
+@UI.lineItem: [{position: 120, label: 'Price_unit'}] 
+@UI.identification: [{ position: 10, label: 'Price_unit' }]
+Price_unit; 
+
+@UI.lineItem: [{position: 130, label: 'GST'}] 
+@UI.identification: [{ position: 10, label: 'GST' }]
+GST;
+
+@UI.lineItem: [{position: 130, label: 'RoundPrice'}] 
+@UI.identification: [{ position: 10, label: 'RoundPrice' }]
+RoundPrice;
+
+@UI.lineItem: [{position: 130, label: 'StprageDetais'}] 
+@UI.identification: [{ position: 10, label: 'StprageDetais' }]
+StprageDetais;
+}

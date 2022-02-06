@@ -1,0 +1,36 @@
+unmanaged implementation in class zbp_kast_i_park_u unique;
+strict;
+
+define behavior for ZKAST_I_Park_U alias Park
+
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly ) ParkUuid, ParkStatus;
+  field ( readonly ) LastChangedAt, LastChangedBy, CreatedAt, CreatedBy;
+  field ( mandatory ) ParkId, ParkName;
+
+  action ( features : instance ) StatusOpen result [1] $self;
+
+
+  mapping for zkast_a_park_u
+  {
+
+    ParkUuid = park_uuid;
+    ParkId = park_id;
+    ParkName = park_name;
+    Capacity = capacity;
+    ParkStatus = park_status;
+    Createdby = createdby;
+    Createdat = createdat;
+    Lastchangedby = lastchangedby;
+    Lastchangedat = lastchangedat;
+
+  }
+
+}

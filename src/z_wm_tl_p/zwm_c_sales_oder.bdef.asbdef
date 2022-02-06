@@ -1,0 +1,13 @@
+managed; //implementation in class zwm_c_sales_oder unique;
+//strict; //Comment this line in to enable strict mode. The strict mode is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for ZWM_C_SALES_ODER //alias <alias_name>
+persistent table ZWM_SALES_ORDER
+lock master
+//authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+}

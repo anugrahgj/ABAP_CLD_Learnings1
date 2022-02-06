@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defenition for Park Data'
+define service ZKAST_UI_PARK_U {
+  expose ZKAST_C_Park_U;
+}

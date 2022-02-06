@@ -1,0 +1,4 @@
+@EndUserText.label: 'ZKAST_EMPL_U1'
+define service ZKAST_EMPL_U1 {
+  expose ZKAST_C_EMPL_GNRL_DATA_U1;
+}

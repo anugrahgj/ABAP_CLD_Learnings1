@@ -1,0 +1,5 @@
+@EndUserText.label: 'Z_MODEL_USERS_XXX'
+@OData.schema.name: 'SFODataSet'
+define service Z_MODEL_USERS_XXX {
+ expose ZUSERACCOUNT; 
+ } 

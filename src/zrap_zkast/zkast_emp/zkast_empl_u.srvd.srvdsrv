@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Defenition for Employee Data'
+define service ZKAST_EMPL_U {
+  expose ZKAST_C_Empl_Gnrl_Data_U as EmployeeGnrl;
+  expose ZKAST_I_Empl_Inf_l_Data_U as EmpInf;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'SD Project'
+define service ZSD_PROJ_001 {
+  expose ZPROJ_001;
+}

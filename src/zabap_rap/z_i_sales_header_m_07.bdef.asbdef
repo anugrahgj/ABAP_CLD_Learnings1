@@ -1,0 +1,79 @@
+managed;
+
+define behavior for Z_I_Sales_Header_M_07 alias SHEADM_07
+implementation in class zbp_i_sales_header_m_07 unique
+persistent table ZVBAK_07
+with additional save
+lock master
+//authorization master ( instance )
+etag master last_changed
+{
+field(readonly) sales_doc_num;
+
+
+ mapping for ZVBAK_07 control Z_I_Sales_Header_M_07 corresponding{
+
+    sales_doc_num = vbeln;
+    block_status = faksk;
+    sales_dist = vtweg;
+    sales_div = spart;
+    sales_org = vkorg;
+    total_cost = netwr;
+    cost_currency = waerk;
+    person_created = ernam;
+    date_created = erdat;
+    last_changed = last_changed_timestamp;
+
+
+  }
+
+  create;
+  update(features : instance);
+  delete(features : instance);
+  association _SItemM_07 { create(features : instance); }
+
+
+ action blockOrder result[1] $self;
+ action unblockOrder result[1] $self;
+
+}
+
+define behavior for Z_I_Sales_Item_M_07 alias SItemM_07
+implementation in class zbp_i_sales_item_m_07 unique
+//persistent table ZVBAP_07
+lock dependent by _SHeadM_07
+with unmanaged save
+//authorization dependent by <association>
+etag master last_changed
+{
+
+    field(mandatory:create) item_position;
+
+    field(readonly) sales_doc_num, cost_currency, unit, total_item_cost ;
+
+    //quantity
+    //unit_cost
+
+    determination newSalesTotal on modify { field quanity, unit_cost; }
+
+    validation checkUnitPriceQuantity on save { field quanity, unit_cost;  }
+
+
+    update;
+    delete;
+
+    mapping for ZVBAP_07 control Z_I_Sales_Item_M_07 corresponding{
+
+        sales_doc_num = vbeln;
+        item_position = posnr;
+        cost_currency = waerk;
+        mat_desc = arktx;
+        mat_num = matnr;
+        quanity = kpein;
+        total_item_cost = netwr;
+        unit_cost = netpr;
+        unit = kmein;
+        last_changed = last_changed_timestamp;
+            }
+
+}

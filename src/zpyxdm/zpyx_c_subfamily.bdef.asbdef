@@ -1,0 +1,29 @@
+projection implementation in class zbp_pyx_c_subfamily unique;
+//strict; //Comment this line in to enable strict mode. The strict mode is prerequisite to be future proof regarding syntax and to be able to release your BO.
+use draft;
+
+define behavior for ZPYX_C_SUBFAMILY alias Subfamily
+{
+  use create (augment);
+  use update (augment);
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Prepare;
+  use action Resume;
+
+  field (modify) Descr;
+
+  use association _Text {create; with draft;}
+}
+
+define behavior for ZPYX_C_SUBFAMILY_T alias SubfamilyText
+{
+
+    use association _Parent { with draft; }
+    use update;
+    use delete;
+
+}

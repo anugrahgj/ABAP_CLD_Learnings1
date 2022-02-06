@@ -1,0 +1,4 @@
+@EndUserText.label: 'Demo'
+define service ZSD_DEMO {
+  expose ZCDS_DEMO;
+}

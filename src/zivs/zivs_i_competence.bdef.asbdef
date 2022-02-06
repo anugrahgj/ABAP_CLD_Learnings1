@@ -1,0 +1,87 @@
+managed implementation in class zbp_ivs_i_competence unique;
+strict;
+
+define behavior for ZIVS_I_Competence //alias <alias_name>
+persistent table zivs_competence
+lock master
+//with additional save
+etag master LastChangedAt
+early numbering                        //early numbering: method 'earlynumbering_create' must be implemented, which creates next ID
+authorization master ( instance )
+{
+  // administrative fields: read only
+  field ( readonly ) comp_id, CreatedBy, CreatedAt, LastChangedBy, LastChangedAt;
+  // mandatory fields that are required to create a 'competence'
+  field ( mandatory ) Description;
+
+  // instance action for copying travel instances
+  action createCompetenceByTemplate result [1] $self;
+
+  create;
+  update;
+  delete;
+  association _Receiver { create; }
+  association _Rule { create; }
+
+  mapping for zivs_competence  //mapping: column names of entity to column names of table
+  {
+    comp_id = comp_id;
+    FromDate = from_date;
+    ToDate = to_date;
+    Description = description;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+  }
+}
+
+//define behavior for ZIVS_I_Receiver //alias <alias_name>
+define behavior for ZIVS_I_Receiver alias Receiver
+persistent table zivs_receiver
+lock dependent by _Competence
+etag master LastChangedAt
+early numbering                        //early numbering: method 'earlynumbering_cba_receiver' must be implemented, which creates next ID
+with additional save
+authorization dependent by _Competence
+//etag master <field_name>
+{
+
+  field ( readonly ) comp_id;
+  // field 'recv_id' is set 'read-only' in create-UI-mask
+  field ( readonly ) recv_id;
+  // field 'ReceiverName is marked as 'mandatory' in create-UI-mask (Note: but there is no check, if it is really filled. This must ne implemented via 'validation'
+  field ( mandatory ) ReceiverName;
+  // field 'last_changed_at' is set 'read-only' in create-UI-mask
+  field ( readonly ) LastChangedAt;
+  // method is called during save in 'create/update'-mode, if field 'ReceiverName' was changed. (Note: required logic must be implemented in method)
+  validation validateReceiverName on save { create; update; field ReceiverName; }
+
+  update;
+  delete;
+
+  association _Competence;
+
+  mapping for zivs_receiver
+  {
+    comp_id = comp_id;
+    recv_id = recv_id;
+    ReceiverName = recv_name;
+    LastChangedAt = last_changed_at;
+  }
+
+}
+
+
+define behavior for ZIVS_I_RULE //alias <alias_name>
+persistent table zivs_rule
+lock dependent by _Competence
+authorization dependent by _Competence
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) comp_id;
+  field ( readonly ) rule_id;
+  association _Competence;
+}

@@ -1,0 +1,5 @@
+CLASS zbp_ivs_i_competence DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zivs_i_competence.
+ENDCLASS.
+
+CLASS zbp_ivs_i_competence IMPLEMENTATION.
+ENDCLASS.

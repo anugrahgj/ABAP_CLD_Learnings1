@@ -1,0 +1,6 @@
+CLASS zbp_kast_i_park_u DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zkast_i_park_u.
+ENDCLASS.
+
+CLASS zbp_kast_i_park_u IMPLEMENTATION.
+
+ENDCLASS.

@@ -1,0 +1,114 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: 
+{ 
+  title:{ type: #STANDARD,
+          label: 'Agent',
+          value: 'AgentId' },
+  description: { type: #STANDARD, 
+                 value: 'AgentName' },
+  typeName: 'Agents',
+  typeNamePlural: 'Agents' 
+}
+annotate view Z_C_AGENT with
+{
+  @UI.facet: [
+   { 
+        id: 'AgentDetails',
+        type: #LINEITEM_REFERENCE,
+        label: 'Agent Details',
+        targetQualifier: 'AgentIdentification',
+        position: 20
+     }
+  ]
+  @UI: { lineItem: [{ position: 5, label: 'Agent ID' }], 
+         selectionField: [{ position: 5 }],
+         fieldGroup: [{ position: 5,  qualifier: 'Agents' }] 
+       }
+  @EndUserText.label: 'Agent ID'
+  AgentId;
+  @UI: { lineItem: [{ position: 10, label: 'Agent Name' }], 
+         selectionField: [{ position: 10 }],
+         fieldGroup: [{ position: 10,  qualifier: 'Agents' }] 
+       }
+  @EndUserText.label: 'Agent name'
+  AgentName;
+  
+  @UI: { 
+      lineItem: [{ position: 5, label: 'Programming language ID' }],
+      fieldGroup: [{ position: 5, qualifier: 'AgentIdentification' }]  
+  }
+  @Consumption.filter.hidden: true
+  @EndUserText.label: 'Programming language ID'
+  ProgrammingLanguageId;
+  
+  @UI: { 
+      lineItem: [{ position: 10, label: 'Purpose ID' }],
+      fieldGroup: [{ position: 10, qualifier: 'AgentIdentification' }]  
+  }
+  @Consumption.filter.hidden: true
+  @EndUserText.label: 'Purpose ID'
+  PurposeId;
+  
+  @UI.hidden: true
+  @Consumption.hidden: true
+  @Consumption.filter.hidden: true
+  DataSourceAgentId;
+  
+  @UI.hidden: true
+  @Consumption.hidden: true
+  @Consumption.filter.hidden: true
+  DataSourceId;
+  
+  @UI: { lineItem: [{ position: 15, label: 'Created by' }], 
+         selectionField: [{ position: 15 }],
+         fieldGroup: [{ position: 15,  qualifier: 'Agents' }] 
+       }
+  @EndUserText.label: 'Created by'
+  CreatedBy;
+  
+  @UI: { lineItem: [{ position: 20, label: 'Last changed by' }], 
+         selectionField: [{ position: 20 }],
+         fieldGroup: [{ position: 20,  qualifier: 'Agents' }] 
+       }
+  @EndUserText.label: 'Last changed by'
+  LastChangedBy;
+  
+  @UI: { lineItem: [{ position: 25, label: 'Last changed at' }], 
+         selectionField: [{ position: 25 }],
+         fieldGroup: [{ position: 25,  qualifier: 'Agents' }] 
+       }
+  @EndUserText.label: 'Last changed at'
+  LastChangedAt;
+  
+  @UI.hidden: true
+  @Consumption.hidden: true
+  LocalLastChangedAt;
+  
+  @UI: { lineItem: [{ position: 30, label: 'Purpose description' }], 
+         selectionField: [{ position: 30 }],
+         fieldGroup: [{ position: 30,  qualifier: 'Agents' }, { position: 15, qualifier: 'AgentIdentification' }] 
+       }
+  @EndUserText.label: 'Purpose description'
+  PurposeDescription;
+  
+  @UI: { lineItem: [{ position: 35, label: 'Language name' }], 
+         selectionField: [{ position: 35 }],
+         fieldGroup: [{ position: 35,  qualifier: 'Agents' }] 
+       }
+  @EndUserText.label: 'Language name'
+  LanguageName;
+  
+  @UI: { lineItem: [{ position: 40, label: 'Version' }], 
+         selectionField: [{ position: 40 }],
+         fieldGroup: [{ position: 40,  qualifier: 'Agents' }] 
+       }
+  @EndUserText.label: 'Version'
+  Version;
+  
+  @UI: { lineItem: [{ position: 45, label: 'Runtime environment' }], 
+         selectionField: [{ position: 45 }],
+         fieldGroup: [{ position: 45,  qualifier: 'Agents' }] 
+       }
+  @EndUserText.label: 'Runtime environment'
+  RuntimeEnv;
+}

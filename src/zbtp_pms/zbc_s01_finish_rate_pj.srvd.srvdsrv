@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for finish rate'
+define service ZBC_S01_FINISH_RATE_PJ {
+  expose ZBC_S01_FINISH_RATE_PROJECTION as FinishRateAnalysis;
+}

@@ -1,0 +1,59 @@
+@Metadata.layer: #CORE
+
+
+
+
+annotate view ZKAST_EMP_C_proj with
+{
+
+
+  @UI.facet: [
+    {
+        id:              'IDENTIFICATION',
+        purpose:         #STANDARD,
+        type:            #IDENTIFICATION_REFERENCE,
+        label:           'IDENTIFICATION facet',
+        position:        10
+    },
+    
+//        {
+//        id:              'Employee',
+//        purpose:         #STANDARD,
+//        type:            #LINEITEM_REFERENCE,
+//        label:           'Employee lineitem',
+//        position:        20,
+//        targetElement:   '_EmpInf',
+//        targetQualifier: '123'
+//        
+//    } 
+
+        {
+        id:              'Employee',
+        purpose:         #STANDARD,
+        type:            #IDENTIFICATION_REFERENCE,
+        label:           'Employee lineitem',
+        position:        20,
+        targetElement:   '_EmpInf'
+
+        
+    }  
+    
+    ]
+
+
+
+  @UI: {  identification: [ { position: 10 } ]  }
+  EmpId;
+
+  @UI: {  identification: [ { position: 20 } ]  }
+  EmpFirstName;
+
+  @UI: {  hidden: true  }
+  EmpLastName;
+
+  @UI: {  hidden: true  }
+  EmpAge;
+
+  @UI: {  hidden: true  }
+  EmpGender;
+}

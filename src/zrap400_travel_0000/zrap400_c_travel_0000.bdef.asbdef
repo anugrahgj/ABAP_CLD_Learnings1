@@ -1,0 +1,20 @@
+projection;
+
+define behavior for ZRAP400_C_TRAVEL_0000 alias Travel
+
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _Booking { create; }
+}
+
+define behavior for ZRAP400_C_BOOKING_0000 alias Booking
+
+{
+  use update;
+  use delete;
+
+  use association _Travel;
+}

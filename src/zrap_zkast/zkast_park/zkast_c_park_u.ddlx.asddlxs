@@ -1,0 +1,36 @@
+@Metadata.layer: #CORE
+annotate view ZKAST_C_Park_U with
+{
+
+  @UI.facet: [
+    {
+        id:              'ParkIDFacet',
+        purpose:         #STANDARD,
+        type:            #IDENTIFICATION_REFERENCE,
+        label:           'Park',
+        position:        10
+    }
+  ]
+
+  @UI : {  hidden:  true  }
+  ParkUuid;
+
+  @UI : {  lineItem:       [{ position: 20, label: 'Park ID' } ],
+           identification: [{ position: 20, label: 'Park ID' }] }
+  ParkId;
+
+  @UI : {  lineItem:       [{ position: 30, label: 'Park Name' } ],
+           identification: [{ position: 30, label: 'Park Name' }] }
+  ParkName;
+
+  @UI : {  lineItem:       [{ position: 40, label: 'Park Capacity' }  ],
+           identification: [{ position: 40, label: 'Capacity' }] }
+  Capacity;
+  
+  @UI:  {  lineItem:       [ { position: 50 },
+                             { type: #FOR_ACTION, dataAction: 'StatusOpen', 
+                               label: 'Set Open' } ],
+           identification: [ { position: 50, label: 'Status' } ]  }
+  ParkStatus;
+
+}

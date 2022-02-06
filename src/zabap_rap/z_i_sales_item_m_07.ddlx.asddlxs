@@ -1,0 +1,89 @@
+@Metadata.layer: #CUSTOMER
+annotate view Z_I_Sales_Item_U_03
+    with 
+{
+    @UI.facet: [
+
+        {type: #IDENTIFICATION_REFERENCE, position: 10, id: 'SItem_U_03', label: 'Item'},
+
+{type: #FIELDGROUP_REFERENCE, position: 10, targetQualifier: 'BaiscInfo',parentId: 'SItem_U_03', isSummary: true, isPartOfPreview: true}
+
+    ]
+    
+       
+       
+       
+    
+@UI: {
+    lineItem: [ { position: 10,label: 'Number',importance: #HIGH },{ type:#FOR_ACTION,dataAction:'createByTemplate',label:'Create by Templte'}],
+     
+    identification: [{ position: 10, label: 'Number'}],
+  
+    fieldGroup: [{qualifier: 'BaiscInfo',position: 10,importance: #HIGH }]
+    }
+  sales_doc_num;
+    
+    @UI: {
+    lineItem: [ { position: 20,label: 'Position',importance: #HIGH }],
+     
+    identification: [{ position: 20, label: 'Position'}],
+
+    fieldGroup: [{qualifier: 'BaiscInfo',position: 20,importance: #HIGH }]
+    }
+    item_position;
+    
+       @UI: {
+    lineItem: [ { position: 30,label: 'Material',importance: #HIGH }],
+     
+    identification: [{ position: 30, label: 'Material'}],
+    
+    fieldGroup: [{qualifier: 'BaiscInfo',position: 30,importance: #HIGH }]
+    }
+    mat_num;
+    
+    @UI: {
+    lineItem: [ { position: 40,label: 'Material Desc',importance: #HIGH }],
+     
+    identification: [{ position: 40, label: 'Material Desc'}],
+    
+    fieldGroup: [{qualifier: 'ItemDetail',position: 40,importance: #HIGH }]
+    }
+    mat_desc;
+      
+    @UI: {
+    lineItem: [ { position: 50,label: 'Quantity',importance: #HIGH }],
+     
+    identification: [{ position: 50, label: 'Quantity'}],
+    
+    fieldGroup: [{qualifier: 'ItemDetail',position: 50,importance: #HIGH }]
+    }
+    
+    quantity;
+    
+    
+    
+      @UI: {
+    lineItem: [ { position: 60,label: 'Unit Price',importance: #HIGH }],
+     
+    identification: [{ position: 60,label: 'Unit Price'}],
+    
+    fieldGroup: [{qualifier: 'ItemDetail',label: 'Unit Price',position: 60,importance: #HIGH }]
+    }
+   
+    
+    unit_cost;
+    
+       @UI: {
+    lineItem: [ { position: 70,label: 'Total Price',importance: #HIGH }],
+     
+    identification: [{ position: 70,label: 'Total Price'}],
+    
+    fieldGroup: [{qualifier: 'ItemDetail',label: 'Total Price',position: 70,importance: #HIGH }]
+    }
+   
+    
+    total_item_cost;
+    
+  
+    
+}

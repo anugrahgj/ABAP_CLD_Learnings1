@@ -1,0 +1,55 @@
+managed;
+// implementation in class ZCL_BDEF_CONTRACTOR unique;
+//strict;
+
+define behavior for ZI_HD_CONTRACTOR alias contractor
+persistent table ZHD_CONTRACTOR
+etag master ChangedAt
+lock master
+//authorization master( global )
+{
+  field (readonly, numbering:managed) ContractorKey;
+  field (mandatory:create, readonly:update) ContractorId;
+  field (mandatory) FirstName, LastName, Country;
+  mapping for ZHD_CONTRACTOR
+ {
+  ContractorKey = contr_key;
+  ContractorId = contractor_id;
+  VendorId = vendor_id;
+  FirstName = first_name;
+  LastName = last_name;
+  Country = country;
+  StartDate = start_date;
+  EndDate = end_date;
+  Status = status;
+  CreatedBy = created_by;
+  CreatedAt = created_at;
+  ChangedBy = last_changed_by;
+  ChangedAt = last_changed_at;
+  }
+  create;
+  update;
+  delete;
+  association _attendance { create; }
+}
+
+define behavior for ZI_TM_ATTENDANCE alias attendance
+persistent table ZIT_ATTENDANCE
+lock dependent by _contractor
+//authorization dependent by _contractor
+//etag master <field_name>
+{
+  field (readonly, numbering : managed ) AttendanceKey;
+  mapping for ZIT_ATTENDANCE
+  {
+  AttendanceKey = attendance_key;
+  ContractorKey = contractor_key;
+  EntryDate = entry_date;
+  TimeIn = time_in;
+  TimeOut = time_out;
+  }
+  update;
+  delete;
+  field ( readonly ) ContractorKey;
+  association _contractor { }
+}

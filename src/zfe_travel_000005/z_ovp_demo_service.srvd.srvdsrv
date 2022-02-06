@@ -1,0 +1,4 @@
+@EndUserText.label: 'Z_Ovp_Demo'
+define service Z_Ovp_Demo_service {
+  expose Z_Ovp_Demo as chart_demo;
+}

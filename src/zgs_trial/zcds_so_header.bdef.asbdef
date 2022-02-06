@@ -1,0 +1,27 @@
+managed; // implementation in class zbp_cds_so_header unique;
+//strict; //Comment this line in to enable strict mode. The strict mode is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for zcds_so_header //alias <alias_name>
+persistent table ZAOC_SO_HEADER
+lock master
+//authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  association _SOItem { create; }
+}
+
+define behavior for ZCDS_SO_ITEM //alias <alias_name>
+persistent table ZAOC_SO_ITEM
+lock dependent by _SOhdr
+//authorization dependent by _SOhdr
+//etag master <field_name>
+{
+  field (readonly:update) so_id;
+  update;
+  delete;
+  //field ( readonly ) so_id;
+//  association _SOhdr;
+}

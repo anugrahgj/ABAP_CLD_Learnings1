@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for USERINFO_03'
+define service ZSHF_SD_USERINFO_M_03 {
+  expose ZSHF_C_USERINFO_M_03;
+}

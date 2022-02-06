@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for user data'
+define service Z_USER_DATA_XXX {
+  expose ZCE_USER_DATA_XXX;
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Books'
+define service ZUI_C_BOOKS {
+  expose Z_C_BOOKS as Books;
+  expose Z_C_AUTHORS as Authors;
+}

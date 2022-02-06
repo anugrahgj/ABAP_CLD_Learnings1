@@ -1,0 +1,8 @@
+projection implementation in class zbp_c_rap_booking_rr1 unique;
+strict;
+
+define behavior for ZC_RAP_BOOKING_RR1 //alias <alias_name>
+{
+
+ action approve result [1] $self;
+}

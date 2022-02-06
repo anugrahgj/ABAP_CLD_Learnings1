@@ -1,0 +1,9 @@
+@EndUserText.label: 'Service definition for Review List'
+define service ZBC_S03_REVIEW_SUM {
+  expose ZBC_S01_FINISH_RATE_CHART as MonthlyDevelopmentListAnalysis;
+  expose ZBI_S03_REVIEW_SUM_PV as MonthlyReviewListAnalysis;
+  expose ZBI_S04_COLLECT_SUM_ALL_PV as AccumulatedDevelopmentList;
+  expose ZBI_S07_ACCU_REVIEW_SUM_ALL_PV as AccumulatedReviewList;
+  expose ZBI_S05_WEEK_SUM_PV as WeeklyDevelopmentListAnalysis;
+  expose ZBI_S06_WEEK_REVIEW_SUM_PV as WeeklyReviewListAnalysis;
+}

@@ -1,0 +1,29 @@
+projection implementation in class zbp_pyx_c_family unique;
+//strict;
+use draft;
+
+define behavior for ZPYX_C_FAMILY alias Family
+{
+  use create (augment);
+  use update (augment);
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Prepare;
+  use action Resume;
+
+  field (modify) Descr;
+
+  use association _Text {create; with draft;}
+}
+
+define behavior for ZPYX_C_FAMILY_T alias FamilyText
+{
+
+    use association _Parent { with draft; }
+    use update;
+    use delete;
+
+}

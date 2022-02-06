@@ -1,0 +1,58 @@
+@Metadata.layer: #CORE
+annotate view Z_C_ENDPOINTS
+  with 
+{
+   @UI: { lineItem: [{ position: 5, label: 'Endpoint ID' }], 
+         selectionField: [{ position: 5 }],
+         fieldGroup: [{ position: 5,  qualifier: 'Endpoints' }] 
+       }
+  @EndUserText.label: 'Endpoint ID'
+  EndpointId;
+  
+  @UI: { lineItem: [{ position: 10, label: 'Endpoint' }], 
+         selectionField: [{ position: 10 }],
+         fieldGroup: [{ position: 10,  qualifier: 'Endpoints' }] 
+       }
+  @EndUserText.label: 'Endpoint'
+  Endpoint;
+  
+  @UI: { lineItem: [{ position: 15, label: 'Endpoint description' }], 
+         selectionField: [{ position: 15 }],
+         fieldGroup: [{ position: 15,  qualifier: 'Endpoints' }] 
+       }
+  @EndUserText.label: 'Endpoint description'
+  Description;
+  
+  @UI: { lineItem: [{ position: 20, label: 'Data source ID' }], 
+         selectionField: [{ position: 20 }],
+         fieldGroup: [{ position: 20,  qualifier: 'Endpoints' }] 
+       }
+  @EndUserText.label: 'Data source ID'
+  DataSourceId;
+  
+  @UI: { lineItem: [{ position: 25, label: 'Created by' }], 
+         selectionField: [{ position: 25 }],
+         fieldGroup: [{ position: 25,  qualifier: 'Endpoints' }] 
+       }
+  @EndUserText.label: 'Created by'
+  CreatedBy;
+  
+  @UI: { lineItem: [{ position: 30, label: 'Last changed by' }], 
+         selectionField: [{ position: 30 }],
+         fieldGroup: [{ position: 30,  qualifier: 'Endpoints' }] 
+       }
+  @EndUserText.label: 'Last changed by'
+  LastChangedBy;
+  
+  @UI: { lineItem: [{ position: 35, label: 'Last changed at' }], 
+         selectionField: [{ position: 35 }],
+         fieldGroup: [{ position: 35,  qualifier: 'Endpoints' }] 
+       }
+  @EndUserText.label: 'Last changed at'
+  LastChangedAt;
+  
+  @UI.hidden: true
+  @Consumption.hidden: true
+  LocalLastChangedAt;
+  
+}

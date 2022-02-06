@@ -1,0 +1,67 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Employee data',
+                typeNamePlural: 'Employee data',
+                title: { type: #STANDARD, value: 'EmployeeId' } } }
+
+
+annotate view zc_rap_imp_data with
+{
+  @UI.facet: [ { id:            'Employee',
+                  purpose:       #STANDARD,
+                  type:          #IDENTIFICATION_REFERENCE,
+                  label:         'Employee',
+                  position:      10 }  ]
+
+  @UI: { identification: [ { position: 5, label: 'EmployeeUIDD'  } ] }
+EmployeeUUID;
+
+  @UI: { identification: [ { position: 10, label: 'EmployeeID'  } ] }
+  EmployeeId;
+
+  @UI.hidden: true
+  TeamUUID;
+
+ @UI.hidden: true
+  FirstName;
+
+  @UI.hidden: true
+  LastName;
+  
+  @UI: { identification: [ { position: 15, label: 'Age'  } ] }
+  Age;
+
+  @UI.hidden: true
+  Title;
+
+  @UI: { lineItem:       [ { position: 30 } ],
+  identification: [ { position: 30 } ] }
+  Street;
+  @UI.hidden: true
+  PostalCode;
+
+  @UI: { lineItem:       [ { position: 40 } ],
+  identification: [ { position: 40 } ] }
+  City;
+  @UI.hidden: true
+  CountryCode;
+
+  @UI: { lineItem:       [ { position: 50 } ],
+     identification: [ { position: 50 } ] }
+  PhoneNumber;
+ 
+  @UI: { lineItem:       [ { position: 50 } ],
+     identification: [ { position: 50 } ] }
+  EmailAddress;
+  @UI.hidden: true
+  Createdby;
+  @UI.hidden: true
+  Createdat;
+  @UI.hidden: true
+  Lastchangedby;
+  @UI.hidden: true
+  Lastchangedat;
+
+
+
+}

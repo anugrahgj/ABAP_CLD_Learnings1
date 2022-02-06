@@ -1,0 +1,4 @@
+@EndUserText.label: 'Authors'
+define service ZUI_C_AUTHORS {
+  expose Z_C_AUTHORS as Authors;
+}

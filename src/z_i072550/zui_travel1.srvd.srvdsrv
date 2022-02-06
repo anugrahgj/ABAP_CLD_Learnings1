@@ -1,0 +1,14 @@
+@EndUserText.label: 'travel serv def'
+define service Zui_travel1 {
+  expose zc_travel as Travel;
+  expose zc_booking as Booking;
+  expose zc_booksupl as BookingSupplement;
+  expose /DMO/I_Customer as Customer;
+  expose I_Currency as Currency;
+  expose /DMO/I_Overall_Status_VH as OverallStatus;
+  expose /DMO/I_Agency as Agency;
+  expose /DMO/I_Carrier as Carrier;
+  expose /DMO/I_Flight as Flight;
+  expose /DMO/I_Booking_Status_VH as BookingStatus;
+  expose /DMO/I_Supplement as Supplement;
+}

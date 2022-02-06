@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for finish rate'
+define service ZUI_BC_FINISH_RATE {
+  expose ZBC_S01_FINISH_RATE;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Ser Def for PO Item'
+define service Z_SER_DEF_PO_ITEM {
+  expose ZV_CDS_VIEW_DEMO_PO;
+}

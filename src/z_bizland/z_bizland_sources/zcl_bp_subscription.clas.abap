@@ -1,0 +1,5 @@
+CLASS zcl_bp_subscription DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF z_i_datasrcssubs.
+ENDCLASS.
+
+CLASS zcl_bp_subscription IMPLEMENTATION.
+ENDCLASS.

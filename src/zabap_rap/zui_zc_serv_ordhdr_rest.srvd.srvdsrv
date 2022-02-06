@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service definition for Service Header'
+define service ZUI_ZC_SERV_ORDHDR_REST {
+  expose ZC_SERV_ORDHDR_REST as ServHeader;
+  expose ZC_SERV_ORDITEM_REST as ServItem;
+}

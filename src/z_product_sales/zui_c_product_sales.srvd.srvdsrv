@@ -1,0 +1,4 @@
+@EndUserText.label: 'service definition for product master'
+define service ZUI_C_PRODUCT_SALES {
+  expose ZC_PRODUCT_SALES_M as ProductMaster;
+}

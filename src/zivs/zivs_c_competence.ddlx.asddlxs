@@ -1,0 +1,76 @@
+@Metadata.layer: #CORE
+
+@UI: { headerInfo: { typeName: 'Competence',
+                     typeNamePlural: 'Competences',
+                     title: { type: #STANDARD,
+                              value: 'comp_id' } } }
+annotate view ZIVS_C_Competence with
+{
+
+  @UI.facet: [ { id:            'Competence',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Competence',
+                 position:      10 },
+               { id:            'Receiver',
+                 purpose:       #STANDARD,
+                 type:          #LINEITEM_REFERENCE,
+//                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Receiver',
+                 position:      20,
+                 targetElement: '_Receiver'}
+//                 ,
+//               { id:            'Rule',
+//                 purpose:       #STANDARD,
+//                 type:          #LINEITEM_REFERENCE,
+//                 label:         'Rule',
+//                 position:      30,
+//                 targetElement: '_Rule'}
+                 ]
+
+  @UI: { lineItem:       [ { position: 10,
+                             importance: #HIGH },
+                             { type: #FOR_ACTION, dataAction: 'createCompetenceByTemplate', label: 'Copy Competence' } ],
+         identification: [ { position: 10 }
+//         ,  { type: #FOR_ACTION, dataAction: 'createCompetenceByTemplate', label: 'Copy Competence' } 
+         ],
+         selectionField: [ { position: 10 } ] }
+  comp_id;
+
+  @UI: { lineItem:       [ { position: 30,
+                             importance: #HIGH } ],
+         identification: [ { position: 30 } ],
+         selectionField: [ { position: 30 } ] }
+  FromDate;
+
+  @UI: { lineItem:       [ { position: 40,
+                             importance: #HIGH } ],
+         identification: [ { position: 40 } ],
+         selectionField: [ { position: 40 } ] }
+  ToDate;
+
+  @UI: { lineItem:       [ { position: 20,
+                             importance: #HIGH } ],
+         identification: [ { position: 20 } ],
+         selectionField: [ { position: 20 } ] }
+  Description;
+  @UI: { lineItem:       [ { position: 50,
+                           importance: #LOW } ],
+          identification: [ { position: 50 } ],
+       selectionField: [ { position: 50 } ] }
+  CreatedBy;
+  @UI: { lineItem:       [ { position: 60,
+   
+                     importance: #LOW } ],
+  identification: [ { position: 60 } ],
+  selectionField: [ { position: 60 } ] }
+  CreatedAt;
+  @UI: { lineItem:       [ { position: 70,
+                     importance: #LOW } ],
+  identification: [ { position: 70 } ] }
+  LastChangedBy;
+  @UI: { lineItem:       [ { position: 80,
+                     importance: #LOW } ],
+  identification: [ { position: 80 } ] }
+  LastChangedAt;
+}

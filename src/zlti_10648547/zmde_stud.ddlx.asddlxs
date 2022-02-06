@@ -1,0 +1,33 @@
+@Metadata.layer: #CORE
+   @UI: {
+  headerInfo: {
+  typeName: 'Student Data',
+  typeNamePlural: 'Student Data',
+  title: { type: #STANDARD, value: 'StudentNum' }
+  }
+}
+
+annotate view zproj_stud with
+{
+@UI.facet: [ { id:              'student',
+                  purpose:         #STANDARD,
+                  type:            #IDENTIFICATION_REFERENCE,
+                  label:           'Details',
+                  position:        10 } ]
+                  
+   @UI: {
+          lineItem: [ { position: 10, importance: #HIGH, label: 'Number' } ],
+          identification:[ { position: 10, label: 'Number' } ]
+          }
+  StudentNum;
+  
+  @UI: {  lineItem:       [ { position: 20, importance: #HIGH, label: 'Name' } ],
+         identification: [ { position: 20, label: 'Name' } ],
+         selectionField: [ { position: 20 } ] }
+  StudentName;
+  
+  @UI: {  lineItem:       [ { position: 30 , label: 'Surname' } ],
+          identification: [ { position: 30, label: 'Surname' } ]}
+  StudentSurname;
+
+ }

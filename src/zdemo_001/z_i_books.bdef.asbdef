@@ -1,0 +1,17 @@
+managed implementation in class zbp_i_books unique;
+strict;
+
+define behavior for Z_I_BOOKS alias Books
+persistent table ZBOOKS
+lock master
+authorization master ( instance )
+etag master changed_at
+{
+  // semantic key is calculated in a determination
+  field ( readonly ) bookid;
+  field ( mandatory ) bookname, price, currency;
+  create;
+  update;
+  delete;
+
+}

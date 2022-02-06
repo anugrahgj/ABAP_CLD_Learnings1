@@ -1,0 +1,7 @@
+@EndUserText.label: 'Bizland sources service'
+define service Z_BIZLAND_SOURCES_SRV {
+  expose Z_C_DATASRCSSUBS;
+  expose Z_C_AGENT;
+  expose Z_C_ENDPOINTS;
+  expose Z_C_SUBSCRIPTION;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'product sd'
+define service Zsd_product {
+  expose zi_ce_product;
+}

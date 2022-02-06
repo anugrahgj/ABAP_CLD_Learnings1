@@ -1,0 +1,98 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: 
+{ 
+  title:{ type: #STANDARD,
+          label: 'Subscription',
+          value: 'DataSourceSubscriptionId' },
+  description: { type: #STANDARD, 
+                 value: 'Description' },
+  typeName: 'Subscription',
+  typeNamePlural: 'Subscriptions' 
+ }
+annotate view Z_C_SUBSCRIPTION
+  with 
+{
+  @UI.facet: [
+   { 
+        id: 'DataSourceSubscriptionId',
+        type: #LINEITEM_REFERENCE,
+        label: 'Subscription details',
+        targetQualifier: 'SubscriptionDetails',
+        position: 20
+     }
+  ]
+  @UI: { lineItem: [{ position: 5, label: 'Subscription ID' }], 
+         selectionField: [{ position: 5 }],
+         fieldGroup: [{ position: 5,  qualifier: 'Subscriptions' }] 
+       }
+  @EndUserText.label: 'Subscription ID'
+  DataSourceSubscriptionId;
+  
+  @UI: { lineItem: [{ position: 10, label: 'Valid from' }], 
+         selectionField: [{ position: 10 }],
+         fieldGroup: [{ position: 10,  qualifier: 'Subscriptions' }] 
+       }
+  @EndUserText.label: 'Valid from'
+  ValidFrom;
+  
+  @UI: { lineItem: [{ position: 15, label: 'Valid to' }], 
+         selectionField: [{ position: 15 }],
+         fieldGroup: [{ position: 15,  qualifier: 'Subscriptions' }] 
+       }
+  @EndUserText.label: 'Valid to'
+  ValidTo;
+  
+  @UI: { lineItem: [{ position: 20, label: 'Contact email' }], 
+         selectionField: [{ position: 20 }],
+         fieldGroup: [{ position: 20,  qualifier: 'Subscriptions' }] 
+       }
+  @EndUserText.label: 'Contact email'
+  ContactEmailUsed;
+  
+  @UI: { lineItem: [{ position: 25, label: 'Login user' }], 
+         selectionField: [{ position: 25 }],
+         fieldGroup: [{ position: 25,  qualifier: 'Subscriptions' }] 
+       }
+  @EndUserText.label: 'Login user'
+  LoginUser;
+  
+  @UI: { lineItem: [{ position: 25, label: 'Login password' }], 
+         selectionField: [{ position: 25 }],
+         fieldGroup: [{ position: 25,  qualifier: 'Subscriptions' }] 
+       }
+  @EndUserText.label: 'Login password'
+  LoginPassword;
+  
+  @UI: { lineItem: [{ position: 30, label: 'Description' }], 
+         selectionField: [{ position: 30 }],
+         fieldGroup: [{ position: 30,  qualifier: 'Subscriptions' }] 
+       }
+  @EndUserText.label: 'Description'
+  Description;
+  
+  @UI: { lineItem: [{ position: 35, label: 'Created by' }], 
+         selectionField: [{ position: 35 }],
+         fieldGroup: [{ position: 35,  qualifier: 'Subscriptions' }] 
+       }
+  @EndUserText.label: 'Created by'
+  CreatedBy;
+  
+  @UI: { lineItem: [{ position: 40, label: 'Last changed at' }], 
+         selectionField: [{ position: 40 }],
+         fieldGroup: [{ position: 40,  qualifier: 'Subscriptions' }] 
+       }
+  @EndUserText.label: 'Last changed at'
+  LastChangedAt;
+  
+  @UI.hidden: true
+  @Consumption.hidden: true
+  LastChangedBy;
+  
+  @UI.hidden: true
+  @Consumption.hidden: true
+  LocalLastChangedAt;
+  
+  @UI.hidden: true
+  @Consumption.hidden: true
+  DataSourceId;
+}

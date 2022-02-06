@@ -1,0 +1,4 @@
+@EndUserText.label: 'Invoice Report'
+define service Z_Invoice_report {
+  expose Z_INVOICE_ITEMS;
+}

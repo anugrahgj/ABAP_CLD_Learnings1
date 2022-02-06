@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZKAST_MC_GENDER</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>ZKAST_MC_GENDER</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZKAST_MC_GENDER</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>&amp;1 - incorrect! Please select Gender only from the dropdownlist</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

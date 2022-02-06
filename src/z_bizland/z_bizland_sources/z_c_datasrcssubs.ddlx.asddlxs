@@ -1,0 +1,106 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: 
+{ 
+  title:{ type: #STANDARD,
+          label: 'Data source',
+          value: 'SourceUrl' },
+  description: { type: #STANDARD, 
+                 value: 'DescriptionText' },
+  typeName: 'Data source',
+  typeNamePlural: 'Data sources' 
+}
+//@UI.presentationVariant: [{ id: 'pv_data_subscriptions', text: 'Data source', visualizations: [{ type: #AS_LINEITEM }] }]
+annotate view Z_C_DATASRCSSUBS
+  with 
+{
+  @UI.facet: [
+    {
+      id: 'DataSrcsHeaderFacet',
+      label: 'Data source',
+      purpose: #HEADER,
+      type: #FIELDGROUP_REFERENCE,
+      targetQualifier: 'HeaderFacet',
+      position: 10
+    }, 
+    {
+      id: 'Sources',
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Data sources',
+      targetQualifier: 'BasicInfo',
+      isPartOfPreview: true,
+      position: 15  
+     },
+     { 
+        id: 'Agents',
+        type: #LINEITEM_REFERENCE,
+        label: 'Agents',
+        targetQualifier: 'Agents',
+        targetElement: '_agent',
+        position: 20
+     },
+     { 
+        id: 'Subscriptions',
+        type: #LINEITEM_REFERENCE,
+        label: 'Subscriptions',
+        targetQualifier: 'Subscriptions',
+        targetElement: '_subscription',
+        position: 25
+     }
+     //,
+//     { 
+//      id: 'Endpoints',
+//      type: #LINEITEM_REFERENCE,
+//      label: 'Endpoints',
+//      targetQualifier: 'Endpoints',
+//      targetElement: '_srcendpoint',
+//      position: 30
+//     }
+  ]
+  @UI: { fieldGroup: [{ position: 5, qualifier: 'FieldGroup:HeaderFacet' }], 
+         lineItem: [{ label: 'Data source ID' }], 
+         selectionField: [{ position: 5 }] 
+       }
+  @EndUserText: { label: 'Data source ID' }
+  DataSourceId;
+  @UI: { lineItem: [{ position: 5, label: 'Source URL' }], 
+         selectionField: [{ position: 5 }],
+         fieldGroup: [{ position: 5,  qualifier: 'BasicInfo' }] 
+       }
+  @EndUserText: { label: 'Source URL' }
+  SourceUrl;
+  @UI: { lineItem: [{ position: 10, label: 'Discovery timestamp' }], 
+         fieldGroup: [{ position: 10, qualifier: 'BasicInfo' }] 
+       }
+  @EndUserText: { label: 'Discovery timestamp' }
+  DiscoveryTimestamp;
+  @UI: { lineItem: [{ position: 15, label: 'Description' }],
+         fieldGroup: [{ position: 15, qualifier: 'BasicInfo' }] 
+       }
+  @EndUserText: { label: 'Description text' }
+  DescriptionText;
+  @UI: { lineItem: [{ position: 20, label: 'Endpoint' }],
+         fieldGroup: [{ position: 20, qualifier: 'BasicInfo' }] 
+       }
+  @EndUserText: { label: 'Endpoint' }
+  Endpoint;
+  @UI: { lineItem: [{ position: 25, label: 'Created by' }],
+         fieldGroup: [{ position: 25, qualifier: 'BasicInfo' }] 
+       }
+  @EndUserText: { label: 'Created by' }
+  CreatedBy;
+  @UI: { lineItem: [{ position: 30, label: 'Last changed by' }],
+         fieldGroup: [{ position: 30, qualifier: 'BasicInfo' }] 
+       }
+  @EndUserText: { label: 'Last changed by' }
+  LastChangedBy;
+  
+  @UI.hidden: true
+  @Consumption.filter.hidden: true
+  @Consumption.hidden: true
+  LastChangedAt;
+  
+  @UI.hidden: true
+  @Consumption.filter.hidden: true
+  @Consumption.hidden: true
+  LocalLastChangedAt;
+}

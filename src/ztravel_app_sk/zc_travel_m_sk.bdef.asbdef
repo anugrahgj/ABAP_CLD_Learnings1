@@ -1,0 +1,9 @@
+projection;
+
+define behavior for ZC_TRAVEL_M_SK alias TravelProcessor
+use etag
+{
+  use create;
+  use update;
+  use delete;
+}

@@ -1,0 +1,66 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'UX Team',
+                typeNamePlural: 'UX Team',
+                title: { type: #STANDARD, label: 'UXTeam', value: 'EmployeeID' }  },
+                presentationVariant: [{ sortOrder: [{ by: 'EmployeeID', direction:  #ASC }] }] }
+
+annotate view ZC_UX_TEAM with
+{
+
+  @UI.facet: [ {   id:              'UXTeam',
+                   purpose:         #STANDARD,
+                   type:            #IDENTIFICATION_REFERENCE,
+                   label:           'UXTeam',
+                   position:        10 },
+               {   id:              'Employee',
+                   purpose:         #STANDARD,
+                   type:            #LINEITEM_REFERENCE,
+                   label:           'Employee',
+                   position:        20,
+                   targetElement:   '_ImpData'} ]
+
+
+  @UI:{ identification: [{ position: 1, label: 'Id' }] }
+  Uuid;
+
+  @UI: {  lineItem:       [ { position: 15 } ],
+      identification: [ { position: 15 } ],
+      selectionField: [ { position: 15 } ] }
+  EmployeeID;
+
+  @UI: {  lineItem:       [ { position: 20 } ],
+        identification: [ { position: 20 } ],
+        selectionField: [ { position: 20 } ] }
+  Firstname;
+
+  @UI: {  lineItem:       [ { position: 30 } ],
+        identification: [ { position: 30 } ],
+        selectionField: [ { position: 30 } ] }
+  Lastname;
+
+  @UI: {  lineItem:       [ { position: 40 } ],
+        identification: [ { position: 40 } ] }
+  Age;
+
+  @UI: {  lineItem:       [ { position: 50 } ],
+        identification: [ { position: 50 } ] }
+  Role;
+
+  @UI: {  lineItem:       [ { position: 60 } ],
+       identification: [ { position: 60 } ] }
+  Salary;
+
+  @UI: {  lineItem:       [ { position: 70 }, { type: #FOR_ACTION, dataAction: 'setActive', label: 'Set Active' },
+                                              { type: #FOR_ACTION, dataAction: 'setInactive', label: 'Set Inactive' } ],
+        identification: [ { position: 70 }, { type: #FOR_ACTION, dataAction: 'setActive', label: 'Set Active' },
+                                            { type: #FOR_ACTION, dataAction: 'setInactive', label: 'Set Inactive' } ] }
+  Active;
+
+  @UI.hidden: true
+  LastChangedAt;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+}

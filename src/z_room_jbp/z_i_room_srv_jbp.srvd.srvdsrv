@@ -1,0 +1,4 @@
+@EndUserText.label: 'Room'
+define service Z_I_ROOM_SRV_JBP {
+  expose Z_I_ROOM_JBP as Room;
+}

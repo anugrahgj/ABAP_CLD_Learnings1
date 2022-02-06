@@ -1,0 +1,7 @@
+@EndUserText.label: 'Service Def for Bank Services Management'
+define service ZPYX_UI_BANKSRV {
+  expose ZPYX_C_FAMILY;
+  expose ZPYX_C_FAMILY_T;
+  expose ZPYX_C_SUBFAMILY;
+  expose ZPYX_C_SUBFAMILY_T;
+}

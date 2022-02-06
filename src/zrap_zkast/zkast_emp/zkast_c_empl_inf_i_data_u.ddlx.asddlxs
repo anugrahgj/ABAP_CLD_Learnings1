@@ -1,0 +1,57 @@
+@Metadata.layer: #CORE
+
+
+@UI: {
+  headerInfo: { typeName: 'Booking  (Find me in code EXTBK->10:)))',
+                typeNamePlural: 'Bookings  (Find me in code EXTBK->20:)))',
+                title: { type: #STANDARD, value: 'EmpCity' } } }
+
+
+annotate view ZKAST_C_Empl_Inf_I_Data_U with
+{
+//
+//  @UI.facet: [
+//    {
+//        id:              'Identification_Facet',
+//        purpose:         #STANDARD,
+//        type:            #IDENTIFICATION_REFERENCE,
+//        label:           'Identification Facet ADD INF',
+//        position:        10
+//    }
+//
+//      
+//      ]
+
+
+
+  @UI: {  identification: [ { position: 10 } ],
+          lineItem:       [ { position: 10, label: 'Gender' } ]  }
+  EmpId;
+
+  @UI: {  identification: [ { position: 20 } ],
+          lineItem:       [ { position: 20 } ]  }
+  EmpCity;
+
+  @UI: {  identification: [ { position: 30 } ],
+          lineItem:       [ { position: 30 } ]  }
+  EmpNumber;
+
+  @UI: {  identification: [ { position: 40 } ],
+          lineItem:       [ { position: 40 } ]  }
+  EmpEmail;
+
+  @UI: {  hidden: true  }
+  Createdby;
+
+  @UI: {  hidden: true  }
+  Createdat;
+
+  @UI: {  hidden: true  }
+  Lastchangedby;
+
+  @UI: {  hidden: true  }
+  Lastchangedat;
+
+
+
+}

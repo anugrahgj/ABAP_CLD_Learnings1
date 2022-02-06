@@ -1,0 +1,111 @@
+@Metadata.layer: #CORE
+
+
+//////@UI.chart: [ {
+//////                qualifier: 'Chart1', 
+//////                title: 'Flight Prices of this Travel by Airline',
+//////                chartType: #COMBINATION_DUAL,
+//////                dimensions: [ 'CarrierID'],
+//////
+//////  measures: [ 'dummy1', 'dummy2'],
+//////
+//////  measureAttributes: [ {measure: 'dummy1', role: #AXIS_1},
+//////                        {measure: 'dummy2', role: #AXIS_2} ],
+//////
+//////  dimensionAttributes: [ {dimension: 'CarrierID', role: #SERIES} ],
+//////
+//////  description: 'Chart shows flight prices of travel by the airlines used pereach booking.'
+//////
+//////} ]
+
+//@UI.chart: [{
+//                qualifier: 'Chart1', //refers to targetQualifier defined in chart facet inZ_C_TRAVEL_UI
+//                title: 'Flight Prices of this Travel by Airline',
+//                chartType: #COMBINATION_DUAL,
+//                dimensions: [ 'AirlineID'],
+//
+// measures: [ 'ConvertedFlightPrice', 'DistinctBookings'],
+//
+//measureAttributes: [ {measure: 'ConvertedFlightPrice', role: #AXIS_1},
+//                        {measure: 'DistinctBookings', role: #AXIS_2} ],
+//
+// dimensionAttributes: [ {dimension: 'AirlineID', role: #SERIES} ],
+//
+// description: 'Chart shows flight prices of travel by the airlines used pereach booking.'
+// }
+//]
+
+
+
+
+//@UI: {
+//  headerInfo: { typeName: 'Booking  (Find me in code EXTBK->10:)))',
+//                typeNamePlural: 'Bookings Header',
+//                title: { type: #STANDARD, value: 'BookingID' } } }
+
+
+annotate view ZC_ZKAST_RAP_Booking with
+{
+//  @UI.facet: [ { id:            'Booking12345',
+//                  purpose:       #STANDARD,
+//                  type:          #IDENTIFICATION_REFERENCE,
+//                  label:         'Booking identification',
+//                  position:      10 }  ]
+
+  @UI.hidden: true
+//  @UI: { identification: [ { position: 10, label: 'Booking UUID'  } ] }
+  BookingUUID;
+
+  @UI.hidden: true
+  TravelUUID;
+  @UI.hidden: true
+//  @UI: { 
+//  lineItem:       [ { position: 20 } ],
+//         identification: [ { position: 20 } ] }
+  BookingID;
+  @UI.hidden: true
+//  @UI: { 
+//  lineItem:       [ { position: 30 } ],
+//         identification: [ { position: 30 } ] }
+  BookingDate;
+  @UI.hidden: true
+//  @UI: { 
+//  lineItem:       [ { position: 40 } ],
+//         identification: [ { position: 40 } ] }
+  CustomerID;
+  @UI.hidden: true
+//  @UI: { 
+//  lineItem:       [ { position: 50 } ],
+//         identification: [ { position: 50 } ] }
+  CarrierID;
+  @UI.hidden: true
+//  @UI: { 
+////  lineItem:       [ { position: 60 } ],
+//         identification: [ { position: 60 } ] }
+  ConnectionID;
+  @UI.hidden: true
+//  @UI: {
+////   lineItem:       [ { position: 70 } ],
+//         identification: [ { position: 70 } ] }
+  FlightDate;
+  @UI.hidden: true
+//  @UI: { 
+////  lineItem:       [ { position: 80 } ],
+//         identification: [ { position: 80 } ] }
+  FlightPrice;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+  @UI.hidden: true
+//  @UI: { 
+//  lineItem:       [ { position: 90 } ],
+//       identification: [ { position: 90 } ] }
+  Gender;
+
+  @UI.hidden: true
+//  @UI.lineItem: [ { position: 05, label: ' ', iconUrl: 'CustImageURL1 '} ]
+  CustImageURL1;
+
+
+
+}

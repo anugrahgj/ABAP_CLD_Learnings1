@@ -1,0 +1,13 @@
+managed;// implementation in class zbp_cds_delivery unique;
+//strict; //Comment this line in to enable strict mode. The strict mode is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for zcds_delivery //alias <alias_name>
+persistent table ZHLIKP
+lock master
+//authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+}

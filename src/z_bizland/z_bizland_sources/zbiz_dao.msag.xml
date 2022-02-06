@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZBIZ_DAO</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>DAO messages</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBIZ_DAO</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Error during initial checks in operation &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBIZ_DAO</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Error during structural checks in operation &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBIZ_DAO</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Error during where condition check in operation &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBIZ_DAO</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Error during order by check in operation &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBIZ_DAO</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Casting error during structural check</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBIZ_DAO</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Casting error during tabular check</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

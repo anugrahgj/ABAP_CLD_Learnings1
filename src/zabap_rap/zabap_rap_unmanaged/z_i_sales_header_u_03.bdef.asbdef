@@ -1,0 +1,59 @@
+unmanaged implementation in class zbp_i_sales_header_u_03 unique;
+
+define behavior for Z_I_Sales_Header_U_03 alias SOHeader
+//late numbering
+//lock master
+//etag master last_changed
+{
+  create;
+  update(features : instance);
+  delete(features : instance);
+
+field (readonly) sales_doc_num, last_changed, date_created, block_status, person_created;
+
+mapping for ZVBAK_02 control Z_I_Sales_Header_U_03 corresponding{
+        sales_doc_num  = vbeln;
+        block_status   = faksk;
+        sales_dist     = vtweg;
+        sales_div      = spart;
+        sales_org      = vkorg;
+        total_cost     = netwr;
+        cost_currency  = waerk;
+        person_created = ernam;
+        date_created   = erdat;
+        last_changed   = last_changed_timestamp;
+}
+  association _SItem_U_03 { create(features : instance); }
+
+  action blockOrder result[1] $self;
+  action unBlockOrder result[1] $self;
+  action GetFile result[1] $self;
+
+}
+
+define behavior for Z_I_Sales_Item_U_03 alias SOItem
+//late numbering
+//lock dependent by <association>
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  field (readonly) sales_doc_num, item_position, total_item_cost;
+
+   mapping for ZVBAP_02 control Z_I_Sales_Item_U_03 corresponding{
+        sales_doc_num   = vbeln;
+        item_position   = posnr;
+        cost_currency   = waerk;
+        mat_desc        = arktx;
+        mat_num         = matnr;
+        quantity        = kpein;
+        total_item_cost = netwr;
+        unit_cost       = netpr;
+        unit            = kmein;
+        last_changed    = last_changed_timestamp;
+
+   }
+
+}

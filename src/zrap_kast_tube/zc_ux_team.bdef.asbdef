@@ -1,0 +1,25 @@
+projection;
+use draft;
+
+define behavior for ZC_UX_TEAM alias UXTeam
+use etag
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _ImpData { create; with draft; }
+
+  use action setActive;
+  use action setInactive;
+}
+
+
+define behavior for ZC_RAP_IMP_DATA alias ImpData
+use etag
+{
+  use update;
+  use delete;
+
+  use association _Team { with draft; }
+}

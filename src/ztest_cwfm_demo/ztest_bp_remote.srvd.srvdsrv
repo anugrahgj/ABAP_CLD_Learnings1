@@ -1,0 +1,7 @@
+@EndUserText.label: 'ZTEST_BP_REMOTE'
+@OData.schema.name: 'API_BUSINESS_PARTNER'
+define service ZTEST_BP_REMOTE {
+ expose ZA_BUSINESSPARTNER; 
+ expose ZA_BUSINESSPARTNERADDRESS; 
+ expose ZA_BUSINESSPARTNERBANK; 
+ } 

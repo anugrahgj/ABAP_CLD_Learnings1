@@ -1,0 +1,5 @@
+@EndUserText.label: 'UI Competence Processor'
+define service ZIVS_UI_Competence_Processor {
+  expose ZIVS_C_Competence;
+  expose ZIVS_C_Receiver;
+}

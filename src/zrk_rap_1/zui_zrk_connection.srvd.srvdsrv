@@ -1,0 +1,4 @@
+@EndUserText.label: 'Serv Definition for Connection'
+define service ZUI_ZRK_Connection {
+  expose ZRK_RAP_I_CONNECTION as Connection;
+}

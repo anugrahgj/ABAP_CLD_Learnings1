@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service definition'
+define service Z_c_sd_u_01 {
+  expose z_c_sales_doc_u_03;
+  expose z_c_sales_item_u_03;
+}

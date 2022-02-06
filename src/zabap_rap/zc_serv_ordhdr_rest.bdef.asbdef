@@ -1,0 +1,29 @@
+unmanaged implementation in class ZCL_C_I_SERVORD_REST unique;
+
+define behavior for ZC_SERV_ORDHDR_REST alias ServOrd
+//late numbering
+//lock master
+//authorization master
+etag ChangedOn
+{
+  field ( read only ) ServiceOrd, ActualCost, Status, CreatedOn, CreatedBy, ChangedOn, ChangedBy;
+  field ( mandatory ) Customer;
+  create;
+  update;
+  delete;
+  association _Item { create; }
+//  action (features : instance) Approved result [1] $self;
+}
+
+define behavior for ZC_SERV_ORDITEM_REST alias ServItem
+//late numbering
+//lock dependent( <local_field_name> = <target_field_name> )
+//authorization dependent( <local_field_name> = <target_field_name> )
+//etag <field_name>
+{
+  field ( read only ) ServiceOrd, ServiceItem, ItemStatus;
+  field ( mandatory ) LabourCode, LabourCategory;
+  create;
+  update;
+  delete;
+}

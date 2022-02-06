@@ -1,0 +1,14 @@
+@Metadata.layer: #CORE
+annotate entity ZPYX_C_SUBFAMILY_T
+    with 
+{
+    @UI.hidden: true
+    Guid;
+    
+    @Search.defaultSearchElement: true
+    @UI: { lineItem:       [ { position: 10 } ] } 
+    Langu;
+    @UI: { lineItem:       [ { position: 20 } ] } 
+    Descr;
+    
+}

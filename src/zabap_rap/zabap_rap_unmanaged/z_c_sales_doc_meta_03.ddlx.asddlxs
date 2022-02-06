@@ -1,0 +1,137 @@
+
+@Metadata.layer: #CUSTOMER
+
+@UI: {
+
+headerInfo: {
+
+typeName: 'Sales Document',
+
+typeNamePlural: 'Sales Documents',
+
+title: { type: #STANDARD, label: 'Sales Order',value: 'sales_doc_num' },
+description: { label: 'Date Created',value: 'date_created' }
+
+}
+
+}
+annotate view z_c_sales_doc_u_03
+    with 
+{
+    //Z_I_Sales_Header_M_02
+    //in #IDENTIFICATION_REFERENCE the lable also comes with data
+    
+     @UI.facet: [
+     { 
+        id: 'General', type: #IDENTIFICATION_REFERENCE, position: 10, label: 'Sale Document'
+     },
+     {
+         type: #FIELDGROUP_REFERENCE, position: 10, targetQualifier: 'BaiscInfo', parentId: 'General',
+        isSummary: true, isPartOfPreview: true 
+      },
+      {
+         type: #FIELDGROUP_REFERENCE, position: 20, targetQualifier: 'DetailInfo', parentId: 'General',
+        isSummary: true, isPartOfPreview: true 
+      },
+     {
+        id: 'SItem_U_03', purpose: #STANDARD, type: #LINEITEM_REFERENCE, label: 'Sales Order Item sample', position: 10,
+        targetElement: '_SItem_U_03'
+      }
+      ]
+    
+    
+    
+    
+@UI: {
+//If we do not write targetElement association is not coming 
+    lineItem: [ { position: 10,label: 'Number',importance: #HIGH, targetElement: '_SItem_U_03.sales_doc_num' }],
+     
+    identification: [{ position: 10, label: 'Number'}],
+   
+    selectionField: [{ position: 10}],
+    
+    fieldGroup: [{qualifier: 'BaiscInfo',position: 10,importance: #HIGH }]
+}
+    sales_doc_num;
+
+@UI: {
+    lineItem: [ { position: 20,label: 'Created On',importance: #HIGH }],
+     
+    identification: [{ position: 20, label: 'Created On'}],
+    
+    
+    fieldGroup: [{qualifier: 'BaiscInfo',position: 20,importance: #HIGH }]
+}
+    
+    date_created;
+ @UI: {
+    lineItem: [ { position: 30,label: 'Price',importance: #HIGH }],
+     
+    
+ 
+    
+    fieldGroup: [{qualifier: 'BaiscInfo',position: 30,importance: #HIGH }]
+}   
+    
+    
+    total_cost;
+  
+    
+   @UI: {
+    lineItem: [ { position: 40,label: 'Status',importance: #HIGH },
+    { type:#FOR_ACTION,dataAction:'blockOrder',label:'Block Order'},
+    { type:#FOR_ACTION,dataAction:'unBlockOrder',label:'Un-Block Order'}],
+     
+    identification: [{ position: 40, label: 'Status' }],
+    
+    
+    fieldGroup: [{qualifier: 'DetailInfo',position: 40,importance: #HIGH }]
+}   
+       
+    
+    block_status_msg;
+    
+     @UI: {
+    lineItem: [ { position: 50,label: 'Created By',importance: #HIGH }],
+    
+     
+    identification: [{ position: 50, label: 'Created By'}],
+    
+    
+    
+    fieldGroup: [{qualifier: 'DetailInfo',position: 50,importance: #HIGH }]
+}   
+    
+    person_created;
+    
+    
+     @UI: {
+         
+    identification: [{ position: 50, label: 'Sales Org'}],
+        
+   
+    fieldGroup: [{qualifier: 'DetailInfo',position: 60,importance: #HIGH }]
+    }   
+    
+    
+    sales_org;
+    
+     @UI: {
+         
+    identification: [{ position: 50, label: 'Distribution'}],
+   
+    fieldGroup: [{qualifier: 'DetailInfo',position: 70,importance: #HIGH }]
+    }   
+     
+    sales_dist;
+    
+     @UI: {
+         
+    identification: [{ position: 50, label: 'Division'}],
+   
+    fieldGroup: [{qualifier: 'Division',position: 80,importance: #HIGH }]
+    }   
+   
+    sales_div;    
+  
+}

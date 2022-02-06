@@ -1,0 +1,5 @@
+CLASS zbp_c_datasrcssubs DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF z_c_datasrcssubs.
+ENDCLASS.
+
+CLASS zbp_c_datasrcssubs IMPLEMENTATION.
+ENDCLASS.
